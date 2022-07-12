@@ -1,3 +1,4 @@
+var real_answer
 function generator(){
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -27,41 +28,33 @@ async function the_submit(){
 }
 
 function regex_answer(){
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
     var get_answer = document.getElementById("answer").value;
-
-    xhr.addEventListener("readystatechange", function() {
-        if(this.readyState === 4) {
-            var text = JSON.parse(this.responseText);
-            var regex_result = text[0].regex_result;
-            alert(regex_result);
-            
-        }
-    });
     var str = `https://localhost:8080/GuessAPI/Regex_result?get_answer=${get_answer}`
-    xhr.open("GET", str);
-
-    xhr.send();
+      
+      fetch(str, requestOptions)
+        .then(response => {response.text()})
+        .then(result => alert(result[0].regex_result))
+        .catch(error => console.log('error', error));
 }
 
 function check_result(){
     
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
     var get_answer = document.getElementById("answer").value;
-
-    xhr.addEventListener("readystatechange", function() {
-        if(this.readyState === 4) {
-            var text = JSON.parse(this.responseText);
-            var the_str = document.getElementById("pname").value + " " + text[0].check_result
-            document.getElementById("result").innerText = the_str;
-            //console.log("收到");
-        }
-    });
-    
     var str = `https://localhost:8080/GuessAPI/ResultCheck?get_answer=${get_answer}&real_answer=${real_answer}`
-    xhr.open("GET", str);
-
-    xhr.send();
+      fetch(str, requestOptions)
+        .then(response => {response.text()})
+        .then(result => {
+            var the_str = document.getElementById("pname").value + " " + result[0].check_result;
+            document.getElementById("result").innerText = the_str;
+            console.log(result);
+        })
+        .catch(error => console.log('error', error));
 }

@@ -53,7 +53,7 @@ function check_result(){
     xhr.addEventListener("readystatechange", function() {
         if(this.readyState === 4) {
             var text = JSON.parse(this.responseText);
-            var the_str = document.getElementById("pname").value + " " + text[0].check_result
+            var the_str = document.getElementById("pname").value + " " + text[0].check_result;
             document.getElementById("result").innerText = the_str;
             //console.log("收到");
         }
