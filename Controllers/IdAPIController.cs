@@ -25,9 +25,7 @@ public class IdAPIController : ControllerBase{
             
         })
         .ToArray();
-    }
-
-    
+    }   
     
     public static string verify_ID(string Id){
         bool check_regex = Regex.IsMatch(Id, @"^[A-Z]{1}[1-2]{1}[0-9]{8}$");
