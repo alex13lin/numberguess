@@ -6,7 +6,7 @@ namespace IdAPI.Controllers;
 [ApiController]
 [Route("[controller]")]
 public class GuessAPIController : ControllerBase{
-    [HttpGet("generator")]
+    [HttpGet("Generator")]
     public IEnumerable<GuessAPI> Get()
     {
         return Enumerable.Range(1, 1).Select(index => new GuessAPI

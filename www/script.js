@@ -13,7 +13,7 @@ function generator(){
         }
     });
 
-    xhr.open("GET", "https://localhost:8080/GuessAPI/generator");
+    xhr.open("GET", "https://localhost:8080/GuessAPI/Generator");
 
     xhr.send();
 }
