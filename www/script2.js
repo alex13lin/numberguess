@@ -36,7 +36,7 @@ function regex_answer(){
     var str = `https://localhost:8080/GuessAPI/Regex_result?get_answer=${get_answer}`
       
       fetch(str, requestOptions)
-        .then(response => {response.text()})
+        .then(response => response.json())
         .then(result => alert(result[0].regex_result))
         .catch(error => console.log('error', error));
 }
@@ -48,13 +48,12 @@ function check_result(){
         redirect: 'follow'
       };
     var get_answer = document.getElementById("answer").value;
-    var str = `https://localhost:8080/GuessAPI/ResultCheck?get_answer=${get_answer}&real_answer=${real_answer}`
+    var str = `https://localhost:8080/GuessAPI/ResultCheck?get_answer=${get_answer}&real_answer=${real_answer}`;
       fetch(str, requestOptions)
-        .then(response => {response.text()})
+        .then(response => response.json())
         .then(result => {
             var the_str = document.getElementById("pname").value + " " + result[0].check_result;
             document.getElementById("result").innerText = the_str;
-            console.log(result);
         })
         .catch(error => console.log('error', error));
 }
