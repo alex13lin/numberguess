@@ -1,5 +1,3 @@
-var real_answer
-
 function generator(){
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -19,10 +17,13 @@ function generator(){
     xhr.send();
 }
 
-function the_submit(){
-    regex_answer();
-    check_result();
-    
+async function the_submit(){
+    console.log("開始處理");
+    await check_result();
+    console.log("格式確認完畢");    
+    await regex_answer();
+    console.log("答案確認完畢");
+
 }
 
 function regex_answer(){

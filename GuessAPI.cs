@@ -6,5 +6,6 @@ public class GuessAPI
     public int number2 {get;set;}
     public string? check_result {get;set;}
     public int answer => (int)(number1) + (int)(number2);
+    public string? regex_result {get;set;}
     
 }

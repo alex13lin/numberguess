@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+<meta charset="utf-8">
 <title>猜數字</title>
 </head>
-<script src="script.js"></script>
+<script src="script2.js"></script>
 <body onload="generator()">
 <center>
+
 <div style="text-align:center;background-color:#DAE8FC;width:350px;height:500px;">
 <br>
 <div style="line-height:18px;background-color:#FFECF5;width:300px;height:50px;margin:0 auto;border:4px black solid;">
 <br>
 <span id="topic" style="font-size:21px; color:red;"></span>
 </div>
+
 <br>
 <div style="width:300px;height:50px;margin:0 auto;">
 <span id="result" style="font-size:18px;font-style:oblique;text-decoration:underline;"></span>
 </div>
 
 <div style="width:300px;height:50px;margin:0 auto;">
+<label for="answer">請輸入名稱:</label>
+<input type="text" id="pname" value="Alex">
+</div>
+
+<div style="width:300px;height:50px;margin:0 auto;">
+<label for="answer">請輸入數字:</label>
 <input type="text" id="answer">
 </div>
 
 <div style="width:300px;height:50px;margin:0 auto;">
-<button type="button" onclick="check_result()">送出</button>
+<button type="button" onclick="the_submit()">送出</button>
 </div>
 
 <div style="width:300px;height:50px;margin:0 auto;"> 

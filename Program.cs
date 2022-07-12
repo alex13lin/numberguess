@@ -8,16 +8,16 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-// builder.Services.AddCors (options => {
-//     options.AddPolicy ("All",
-//         builder => {
-//             builder.WithOrigins (new string[]{"http://127.0.0.1:50474"}).AllowAnyHeader().AllowCredentials()
-//                 .AllowAnyMethod ();
-//         });
-// });
+builder.Services.AddCors (options => {
+    options.AddPolicy ("All",
+        builder => {
+            builder.WithOrigins (new string[]{"https://stackblitz.com/"}).AllowAnyHeader().AllowCredentials()
+                .AllowAnyMethod ();
+        });
+});
 var app = builder.Build();
 
-// app.UseCors ("All");
+app.UseCors ("All");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
