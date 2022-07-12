@@ -28,16 +28,16 @@ public class GuessAPIGeneratorController : ControllerBase{
 [Route("[controller]")]
 public class GuessAPIResultCheckController : ControllerBase{
     [HttpGet]
-    public IEnumerable<GuessAPI> Get(int answer,int real_answer)
+    public IEnumerable<GuessAPI> Get(int get_answer,int real_answer)
     {
         return Enumerable.Range(1, 1).Select(index => new GuessAPI
         {
-            check_result = check_result(answer,real_answer)
+            check_result = check_result(get_answer,real_answer)
         })
         .ToArray();
     }
-    public string check_result(int answer,int real_answer){
-        if(answer==real_answer){
+    public string check_result(int get_answer,int real_answer){
+        if(get_answer==real_answer){
             return "恭喜答對!";
         }
         else return "答錯了!";
