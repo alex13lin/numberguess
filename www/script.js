@@ -31,7 +31,6 @@ function check_result(){
         }
     });
     
-    //var the_url = "https://localhost:8080/GuessAPIResultCheck?answer="+get_answer+"&real_answer="+real_answer;
     var str = `https://localhost:8080/GuessAPI/ResultCheck?get_answer=${get_answer}&real_answer=${real_answer}`
     xhr.open("GET", str);
 
