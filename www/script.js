@@ -10,7 +10,6 @@ function generator(){
             var topic = text[0].number1 + "+" + text[0].number2 + "=?";
             real_answer = text[0].answer
             document.getElementById("topic").innerText = topic;
-            //console.log(text);
         }
     });
 
