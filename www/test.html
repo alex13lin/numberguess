@@ -1,27 +1,37 @@
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>猜數字</title>
+</head>
+<script src="script.js"></script>
+<body onload="generator()">
+<center>
+<div style="text-align:center;background-color:#DAE8FC;width:350px;height:500px;">
+<br>
+<div style="line-height:18px;background-color:#FFECF5;width:300px;height:50px;margin:0 auto;border:4px black solid;">
+<br>
+<span id="topic" style="font-size:21px; color:red;"></span>
+</div>
+<br>
+<div style="width:300px;height:50px;margin:0 auto;">
+<span id="result" style="font-size:18px;font-style:oblique;text-decoration:underline;"></span>
+</div>
 
-<body>
-  <h1 id="result"></h1>
+<div style="width:300px;height:50px;margin:0 auto;">
+<input type="text" id="answer">
+</div>
 
-    <script>
+<div style="width:300px;height:50px;margin:0 auto;">
+<button type="button" onclick="check_result()">送出</button>
+</div>
 
-// WARNING: For GET requests, body is set to null by browsers.
+<div style="width:300px;height:50px;margin:0 auto;"> 
+<button type="button" onclick="generator()">重新產生題目</button>
+</div>
 
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener("readystatechange", function() {
-  if(this.readyState === 4) {
-    document.getElementById("result").innerText = this.responseText;
-    console.log(this.responseText);
-  }
-});
-
-xhr.open("GET", "https://localhost:8080/IdAPI?getId=123");
-
-xhr.send();
-
-    </script>
+</div>
+</center>
 </body>
 
 </html>
