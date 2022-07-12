@@ -13,7 +13,7 @@ function generator(){
         }
     });
 
-    xhr.open("GET", "https://localhost:8080/GuessAPIGenerator");
+    xhr.open("GET", "https://localhost:8080/GuessAPI/generator");
 
     xhr.send();
 }
@@ -31,9 +31,9 @@ function check_result(){
         }
     });
     
-    var the_url = "https://localhost:8080/GuessAPIResultCheck?answer="+get_answer+"&real_answer="+real_answer;
-
-    xhr.open("GET", the_url);
+    //var the_url = "https://localhost:8080/GuessAPIResultCheck?answer="+get_answer+"&real_answer="+real_answer;
+    var str = `https://localhost:8080/GuessAPI/ResultCheck?get_answer=${get_answer}&real_answer=${real_answer}`
+    xhr.open("GET", str);
 
     xhr.send();
 }

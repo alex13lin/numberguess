@@ -5,8 +5,8 @@ namespace IdAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class GuessAPIGeneratorController : ControllerBase{
-    [HttpGet]
+public class GuessAPIController : ControllerBase{
+    [HttpGet("generator")]
     public IEnumerable<GuessAPI> Get()
     {
         return Enumerable.Range(1, 1).Select(index => new GuessAPI
@@ -22,12 +22,8 @@ public class GuessAPIGeneratorController : ControllerBase{
         int ranNum= myObject.Next(0, 100);
         return ranNum;
     }
-}
 
-[ApiController]
-[Route("[controller]")]
-public class GuessAPIResultCheckController : ControllerBase{
-    [HttpGet]
+    [HttpGet("ResultCheck")]
     public IEnumerable<GuessAPI> Get(int get_answer,int real_answer)
     {
         return Enumerable.Range(1, 1).Select(index => new GuessAPI
@@ -43,3 +39,4 @@ public class GuessAPIResultCheckController : ControllerBase{
         else return "答錯了!";
     }
 }
+
