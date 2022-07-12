@@ -19,9 +19,9 @@ function generator(){
     xhr.send();
 }
 
-function the_submit(){
-    regex_answer();
-    check_result();
+async function the_submit(){
+    await regex_answer();
+    await check_result();
     
 }
 
