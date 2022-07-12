@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<body>
+  <h1 id="result"></h1>
+
+    <script>
+
+// WARNING: For GET requests, body is set to null by browsers.
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    document.getElementById("result").innerText = this.responseText;
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://localhost:8080/IdAPI?getId=123");
+
+xhr.send();
+
+    </script>
+</body>
+
+</html>
