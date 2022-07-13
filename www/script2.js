@@ -1,29 +1,28 @@
 var real_answer
 function generator(){
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
     document.getElementById("result").innerHTML="開始作答!!!";
     document.getElementById("answer").value="";
-    xhr.addEventListener("readystatechange", function() {
-        if(this.readyState === 4) {
-            var text = JSON.parse(this.responseText);
-            var topic = text[0].number1 + "+" + text[0].number2 + "=?";
-            real_answer = text[0].answer
-            document.getElementById("topic").innerText = topic;
-        }
-    });
-
-    xhr.open("GET", "https://localhost:8080/GuessAPI/Generator");
-
-    xhr.send();
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    fetch("https://localhost:8080/GuessAPI/Generator", requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        var topic = result[0].number1 + "+" + result[0].number2 + "=?";
+        real_answer = result[0].answer;
+        document.getElementById("topic").innerText = topic;
+      })
+      .catch(error => console.log('error', error));
 }
 
 async function the_submit(){
-    console.log("開始處理");
+    //console.log("開始處理");
     await check_result();
-    console.log("格式確認完畢");    
+    //console.log("格式確認完畢");    
     await regex_answer();
-    console.log("答案確認完畢");
+    //console.log("答案確認完畢");
 
 }
 
